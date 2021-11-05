@@ -1,13 +1,13 @@
 //arrray of the quiz questions, avaialble choices, and correct answers     
 var questions = [{
-    title: "Which of the following function of an array object adds one or more elements to the front of an array and returns the new length of the array?",
-    choices: ["unshift( )", "sort( )", "splice( )", "toString( )"],
-    answer: "unshift( )"
+    title: "Which London Train Station can you catch the Hogwarts Express?",
+    choices: ["a. King's Cross Station", "b. London Bridge Station", "c. Victoria Station", "d. Waterloo Station"],
+    answer: "a. King's Cross Station"
 },
 {
-    title: "Which built-in method adds one or more elements to the end of an array and returns the new length of the array?",
-    choices: ["last( )", "put( )", "push( )", "pop( )"],
-    answer: "push( )"
+    title: "What are the names of Harry Potter's parents?",
+    choices: ["a. John & Leah", "b. Jim & Pam", "c. James & Lily", "d. Jerry & Laura"],
+    answer: "c. James & Lily"
 },
 {
     title: " Which built-in method returns the characters in a string beginning at the specified location?",
@@ -15,14 +15,14 @@ var questions = [{
     answer: "substr( )"
 },
 {
-    title: "Which of the following function of an array object adds and/or removes elements from an array?",
-    choices: ["toSource( )", "sort( )", "unshift( )", "splice( )"],
-    answer: "splice( )"
+    title: "What Hogwarts house does Cedric Diggory belong to?",
+    choices:["a. Gryffindor", "b. Hufflepuff", "c. Ravenclaw", "d. Slytherin"],
+    answer: "b. Hufflepuff"
 },
 {
-    title: "Which of the following function of String object combines the text of two strings and returns a new string?",
-    choices: ["add( )", "concat( )", " merge( )", "append( )"],
-    answer: "concat( )"
+    title: "What's Voldemorts real name?",
+    choices: ["a. Tim Roddle", "b. Ron Timble", "c. Thomas Raddle", "d. Tom Riddle"],
+    answer: "d. Tom Riddle"
 }
 ]
 
