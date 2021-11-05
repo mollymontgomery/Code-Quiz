@@ -11,10 +11,10 @@
 
 #nav {
     display: block;
-    background-color: white;
+    background-color: rgb(186, 188, 194);
     display: inline-block;
     width: 98vw;
-    border: 3px solid #306b3c;
+    border: 3px solid #191c1f;
     border-radius: 5px;
     margin: 6px;
 }
@@ -23,7 +23,8 @@
 
 body {
     font-family: 'Roboto Slab', arial;
-    background-color: #fff5f8;
+    /* background-color: #8aa890; */
+    background-image: url(download.jpeg);
 }
 
 #quizBody {
@@ -42,7 +43,7 @@ a {
 
 button {
     border: none;
-    background-color: #306b3c;
+    background-color: #191c1f;
     color: white;
     border-radius: 5px;
     padding: 10px 16px 10px 16px;
@@ -53,7 +54,7 @@ button {
 
 button:hover {
     transition-duration: 0.4s;
-    background-color: #92c498;
+    background-color:  rgb(186, 188, 194);
 }
 
 #quiz {
