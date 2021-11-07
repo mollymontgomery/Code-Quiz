@@ -156,7 +156,7 @@ next();
 function next() {
 currentQuestion++;
 
-if (currentQuestion > questions.length - 1) {
+if (currentQuestion > questions.length) {
     endGame();
     return;
 }
