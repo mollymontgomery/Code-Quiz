@@ -23,17 +23,7 @@ This is a timer-based trivia quiz using HTML, CSS and JavaScript. This is a mult
 At the end of the quiz you will be able to see your score and enter your intials to save your highscore. 
 
 # Demo
-### Start Game
-![Start Game](./assets/images/StartQuiz.png)
 
-### Clicking Through Quiz
-![Click Button](./assets/images/button.png)
-
-### Setting Your High Score
-![Set Highscore](./assets/images/SetHighscore.png)
-
-### Game Over
-![Game Over](./assets/images/GameOver.png)
 
 # Deployed Site
 https://mollymontgomery.github.io/Code-Quiz/ 
