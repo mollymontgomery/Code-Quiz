@@ -8,41 +8,20 @@
 	<title>Harry Potter Quiz</title>
 	<link rel="stylesheet" href="./assets/css/style.css">
   </head>
-	<body>
-		<div id="nav">
-			<!-- view scores link on the top left of nav bar-->
-			<div class="left">
-                <a href="highscore.html"><h4 >View Highscore</h4></a>
-			</div>
-			<!-- countdown timer on the top right of nav bar-->
-			<div class="right">
-				<h4>Time: <span id="time">0</span></h4>
-			</div>
-		</div>
-		<!--main body of quiz-->
-		<div class="wrapper">
-			<div id="startPage">  
-                <h1>   
-                    Harry Potter Quiz!
-                </h1>
-                <h3>
-					Click to play!   
-                </h3>
-                <button id="startBtn">Start!</button>
-            </div>
-			<div id = "questions" class="hide">
-				<h2 id= "questionName">Question</h2>
-				<div id="choices" class="choices">Choices</div>
-			</div>
-			<div id="endScreen" class="hide">
-				<h2>You have finished the quiz!</h2>
-				<p>Final Score: <span id="finalScore"></span></p>
-				<p>Enter initials: <input type="text" id="initials" max="3"></p>
-				<button id="submitInitials">Submit</button>
-			  </div>
-        </div>
 
-
-		<script src="./assets/js/script.js"></script>
-	</body>
-</html>
+  <header>
+	  <div class="viewhighscores">
+		  <a href="./highscore.html">View Highscores</a>
+	  </div>
+	  <div class="timer">
+		  "Time:"
+		  <span id="time">0</span>
+	  </div>
+	  <div class="container">
+		  <div id="start-screen" class="hide">
+			  <h1>Harry Potter Quiz</h1>
+			  <p>Answer the following Harry Potter themed questions within the time limit. Incorrect answers will deduct time by 10 seconds and you will lose points</p>
+			  <button id="start" class="btn">Start Quiz</button>
+		  </div>
+	  </div>
+  </header>
