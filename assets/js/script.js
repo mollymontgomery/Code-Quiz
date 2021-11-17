@@ -1,5 +1,5 @@
 //arrray of the quiz questions, avaialble choices, and correct answers     
-var questions = [{
+var currentQuestions = [{
     title: "Which London Train Station can you catch the Hogwarts Express?",
     choices: ["a. King's Cross Station", "b. London Bridge Station", "c. Victoria Station", "d. Waterloo Station"],
     answer: "a. King's Cross Station"
@@ -50,3 +50,36 @@ var questions = [{
     answer: "a. The location of everyone at Hogwarts"
 }
 ]
+
+var questionIndex = 0;
+var time = questions.length * 15;
+var timeContainer;
+
+var startButton = document.getElementById("start")
+var questionsEl = document.getElementById("questions"); 
+var questionChoices = document.getElementById("choices"); 
+var resultsEl = document.getElementById("results"); 
+var initialsEl = document.getElementById("initials"); 
+var finalResults = document.getElementById("finalresults"); 
+var submitButton = document.getElementById("submit");
+var timerEl = document.getElementById("time");
+
+function startQuiz() { 
+    var startScreenEl = document.getElementById("start-screen"); 
+    startScreenEl.setAttribute("class", "hide"); 
+  
+    questionsEl.removeAttribute("class"); 
+   
+    timerContainer = setInterval(updatedTime, 1000); 
+  
+    timerEl.textContent = time;  
+  
+    getQuestion();  
+  }
+  
+  function getQuestion() {
+    var currentQuestion = questions[questionsIndex]; //reference the questions-array.js
+  
+    var titleEl = document.getElementById("questiontitle");
+    titleEl.textContent = currentQuestion.title;
+  
