@@ -1,5 +1,5 @@
 //arrray of the quiz questions, avaialble choices, and correct answers     
-var currentQuestions = [{
+var questions = [{
     title: "Which London Train Station can you catch the Hogwarts Express?",
     choices: ["a. King's Cross Station", "b. London Bridge Station", "c. Victoria Station", "d. Waterloo Station"],
     answer: "a. King's Cross Station"
@@ -51,35 +51,135 @@ var currentQuestions = [{
 }
 ]
 
-var questionIndex = 0;
-var time = questions.length * 15;
-var timeContainer;
+var questionDiv = document.getElementById("questions");
+var choicesElement = document.getElementById("choices");
+var timerElement = document.getElementById("time");
+var submitInitialsBtn = document.getElementById("submitInitials");
+// referencing startBtn by id on html
+var startBtn = document.getElementById("startBtn");
+startBtn.onclick = startQuiz;
 
-var startButton = document.getElementById("start")
-var questionsEl = document.getElementById("questions"); 
-var questionChoices = document.getElementById("choices"); 
-var resultsEl = document.getElementById("results"); 
-var initialsEl = document.getElementById("initials"); 
-var finalResults = document.getElementById("finalresults"); 
-var submitButton = document.getElementById("submit");
-var timerEl = document.getElementById("time");
+// Setting up the variables
+var currentQuestionIndex = 0;
+var time = 60;
+var timerId;
+var correct = 0;
+var initials = "";
+var finalScore = "";
 
-function startQuiz() { 
-    var startScreenEl = document.getElementById("start-screen"); 
-    startScreenEl.setAttribute("class", "hide"); 
-  
-    questionsEl.removeAttribute("class"); 
-   
-    timerContainer = setInterval(updatedTime, 1000); 
-  
-    timerEl.textContent = time;  
-  
-    getQuestion();  
+// The start quiz function
+function startQuiz(){
+  var startScreenDiv = document.getElementById("startScreen");
+  startScreenDiv.setAttribute("class", "hide")
+
+  questionDiv.removeAttribute("class");
+
+  timerId = setInterval(startTimer, 1000)
+
+  displayQuestion()
+}
+
+  function startTimer(){
+    time--;
+    timerElement.textContent = time;
+
+    if(time === 0){
+      endQuiz();
+    }
   }
+
+  // This function gets the questions to display
+  function displayQuestion(){
+    var currentQuestion = questions[currentQuestionIndex];
+
+    var questionTitle = document.getElementById("questionTitle");
+    questionTitle.textContent = currentQuestion.title;
+
+    choicesElement.innerHTML = "";
+
+    currentQuestion.choices.forEach(function(choice, i){
+
+      var choiceBtn = document.createElement("button");
+      choiceBtn.setAttribute("class", "choice");
+      choiceBtn.setAttribute("value", choice);
+
+      choiceBtn.textContent = i + 1 + ". " + choice;
+
+      choiceBtn.onclick = handleClick;
+      choicesElement.append(choiceBtn);
+    })   
+  }
+
+  function handleClick(){
+    // This if statement is saying if you answer incorrectly, it is taking 10 seconds off your time
+    if(this.value !== questions[currentQuestionIndex].answer ){
+      time -= 10;
+    } else {
+      correct++;
+    }
+
+    if(time < 0){
+      endQuiz();
+    }
+
+    currentQuestionIndex++;
+
+    if(currentQuestionIndex === questions.length){
+      endQuiz();
+    } else {
+      displayQuestion();
+    }
+  }
+
+  // This is the function to end the quiz
+  function endQuiz(){
+
+    clearInterval(timerId);
+
+    var endScreen = document.getElementById("endScreen");
+    endScreen.removeAttribute("class");
+
+    questionDiv.setAttribute("class", "hide");
+
+    var score = correct / questions.length;
+    var userScore = score.toFixed(2);
+    var finalScore = userScore.split("0.")
+
+    console.log("userScore", finalScore[1] + "%")
+
+    var finalScoreElement = document.getElementById("finalScore");
+    finalScoreElement.textContent = finalScore[1] + "%";
+
+    var submitInitials = document.getElementById("submitInitials");
+    submitInitials.onclick = saveHighScore;
+
+  }
+
+
+// This is the function to save the high scores
+  var saveHighScore = function () {
+   
+    var initials = submitInitials
+
+    if (initials !== "") {
+      var highscores = 
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+      
+
+      var newScore = {
+        initials: initials,
+        score: finalScore
+      };
+      
+
+      highscores.push(newScore);
+      window.localStorage.setItem("highscores", 
+      JSON.stringify(highscores));
+
+      
+    }
+  };
+
   
-  function getQuestion() {
-    var currentQuestion = questions[questionsIndex]; //reference the questions-array.js
-  
-    var titleEl = document.getElementById("questiontitle");
-    titleEl.textContent = currentQuestion.title;
-  
+
+  submitInitialsBtn.onclick = saveHighScore;

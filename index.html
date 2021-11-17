@@ -9,41 +9,43 @@
 	<link rel="stylesheet" href="./assets/css/style.css">
   </head>
 
-  <body>
   <header>
-	  <div class="viewhighscores">
-		  <a href="./highscore.html">View Highscores</a>
-	  </div>
-	  <div class="timer">
-		  Time:
-		  <span id="time">0</span>
+    <h1>Harry Potter Quiz</h1>
+    <nav>
+		<ul>
+			<li>
+				<a href="highscores.html">View Highscores</a>
+			</li>
+			<li>
+				<div>Timer:<span id="time"></span></div>
+			</li>
+		</ul>
+	</nav>
+	</header>
+
+	<div class="wrapper">
+		<div id="startScreen">
+		  <p>Start!</p>
+		  <button id="startBtn">Start Quiz</button>
 		</div>
-  </header>
-
-	  <div class="container">
-		  <div id="start-screen" class="start">
-			  <h1>Harry Potter Quiz</h1>
-			  <p>Answer the following Harry Potter themed questions within the time limit. Incorrect answers will deduct time by 10 seconds and you will lose points</p>
-			  <button id="start" class="btn">Start Quiz</button>
-		  </div>
-		  <div id="questions" class="hide">
-			  <h1 id="questionTitle"></h1>
-			  <div id="choices" class="choices"></div>
-		  </div>
-		  <div id="finalresults" class="hide">
-			  <h1>Game Over!</h1>
-			  <p>Final Score: <span id="score"></span>.</p>
-			  <p>Enter intiials: <input type="text" id="initials" />
-				<button id="submit">Submit</button>
-			</p>
-		  </div>
-
-		  <div id="results" class="hideResults"></div>
-		</section>
-
-		<script src="/assets/js/script.js"></script>
-
+		<div id="questions" class="hide">
+		  <h2 id="questionTitle">Question Title</h2>
+		  <div id="choices" class="choices">Question Choices</div>
+		</div>
+		<div id="endScreen" class="hide">
+		  <h2>Game Over!</h2>
+		  <p>Final Score: <span id="finalScore"></span></p>
+		  <p>Enter initials: <input type="text" id="initials" max="3"></p>
+		  <button id="submitInitials">Submit</button>
+		</div>
+	
+	
+	
+	</div>
+	
+	  <script src="assets/js/script.js"></script>
 	</body>
 	</html>
-	
- 
+    
+   
+  
